@@ -1,24 +1,33 @@
-# Exemplo do GitHub Pages.  
+# GuiaBolso Simulador  
+
+## Como funciona?
+O nosso simulador é um _widget_ que é carregado dinamicamente, sem bloquear o carregamento do conteúdo do seu site (como estilos _CSS_ ou arquivos _JavaScript_). Você insere um elemento `HTML` onde deseja que o _widget_ fique visível na página, e, para inicializar o _widget_, colocará um `<script>` no final da sua página, antes de fechar a _tag_ `<body>`. Este `<script>` então identificará através de um `appId` qual widget carregar, e irá iniciar o _widget_ de acordo com as definições de **largura** e **altura**, como descrevemos em mais detalhes a seguir.  
 
 
 ## Incluindo o `HTML` do _widget_  
-Para inicializar nosso `<script>`(_cobriremos na próxima seção_) legal é preciso incluir o seguinte `HTML` para ser usado como container:  
+Para inicializar nosso `<script>`(_cobriremos na próxima seção_) de inicialização é preciso primeiramente incluir o seguinte `HTML` para ser usado como _container_:  
 
 ```html
-<div id="exemplo-widget" data-width="800" data-height="600"></div>
+<div id="gb-widget" data-width="800" data-height="600" data-app-id="{seu appId vem aqui}"></div>
 ```
 
-### Os possíveis parâmetros para serem passados ao `widget`:  
+> Este `HTML` será usado para definir o lugar onde devemos carregar o conteúdo de nosso _widget_.
+> Informe corretamente os parâmetros de **largura** e **altura** para evitar um comportamento indesejado, como por exemplo, quebrar o layout sobrepondo outros elementos da página.  
 
-* data-width:  
-Parâmetro que define a largura do widget  
-* data-height:  
-Parâmetro que define a altura do widget  
-* data-app-id:  
-Consiste de seu `appId`. Caso ainda não possua um `appId`, você pode solicitar acesso [enviando-nos um email](mailto:exemplo@widgetlegal.com).  
+
+ - Os parâmetros abaixo devem ser informados para que o `widget` funcione corretamente:  
+    - `data-width`:  
+        Define a **largura** que o _widget_ usará na página.  
+    - `data-height`:  
+        Define a **altura** que o _widget_ usará na página.  
+    - `data-app-id`:  
+        É aqui que você deve informar seu `appId`. O `appId` é o que nos permite identificar seu acesso ao _widget_ antes de colocá-lo em sua página.
+
+> Para solicitar um `appId` envie um email para [dev@guiabolso.com.br](mailto:dev@guiabolso.com.br&subject=Simulador%20appId%20request).  
+
 
 ## Incluindo o `<script>`  
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget luctus sapien. Aliquam posuere dictum dolor vel consequat. Fusce sed est fringilla lorem consectetur consequat.  
+Coloque o seguinte trecho de código antes de fechar a _tag_ `<body>` na página que o _widget_ será carregado:    
 
 ```html
 <script>
@@ -27,7 +36,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget luctus sa
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//plugins.guiabolso.local/gb-simulador.js#appId=436020343148643";
+        js.src = "//plugins.guiabolso.local/gb-simulador.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'gb-js'));
 </script>
