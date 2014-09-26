@@ -65,7 +65,9 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#exemplo-do-github-pages">Exemplo do GitHub Pages.</a></li>
+        <li class="main active"><a href="#guiabolso-simulador">GuiaBolso Simulador</a></li>
+        
+            <li><a href="#como-funciona">Como funciona?</a></li>
         
             <li><a href="#incluindo-o-html-do-widget">Incluindo o HTML do widget</a></li>
         
@@ -76,30 +78,42 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="exemplo-do-github-pages">Exemplo do GitHub Pages.</h1>
-<h2 id="incluindo-o-html-do-widget">Incluindo o <code>HTML</code> do <em>widget</em></h2>
-<p>Para inicializar nosso <code>&lt;script&gt;</code>(<em>cobriremos na próxima seção</em>) legal é preciso incluir o seguinte <code>HTML</code> para ser usado como container:  </p>
-<pre class="prettyprint well"><code class="html">&lt;div id=&quot;exemplo-widget&quot; data-width=&quot;800&quot; data-height=&quot;600&quot;&gt;&lt;/div&gt;
+<h1 id="guiabolso-simulador">GuiaBolso Simulador</h1>
+<hr />
+<h3 id="como-funciona">Como funciona?</h3>
+<p>O nosso simulador é um <em>widget</em> que é carregado dinamicamente, sem bloquear o carregamento do conteúdo do seu site (como estilos <em>CSS</em> ou arquivos <em>JavaScript</em>). Você insere um elemento <code>HTML</code> onde deseja que o <em>widget</em> fique visível na página, e, para inicializar o <em>widget</em>, colocará um <code>&lt;script&gt;</code> no final da sua página, antes de fechar a <em>tag</em> <code>&lt;body&gt;</code>. Este <code>&lt;script&gt;</code> então identificará através de um <code>appId</code> qual widget carregar, e irá iniciar o <em>widget</em> de acordo com as definições de <strong>largura</strong> e <strong>altura</strong>, como descrevemos em mais detalhes a seguir.  </p>
+<h3 id="incluindo-o-html-do-widget">Incluindo o <code>HTML</code> do <em>widget</em></h3>
+<p>Para inicializar nosso <code>&lt;script&gt;</code>(<em>cobriremos na próxima seção</em>) de inicialização é preciso primeiramente incluir o seguinte <code>HTML</code> para ser usado como <em>container</em>:  </p>
+<pre class="prettyprint well"><code class="html">&lt;div id=&quot;gb-widget&quot; data-width=&quot;800&quot; data-height=&quot;600&quot; data-app-id=&quot;{seu appId vem aqui}&quot;&gt;&lt;/div&gt;
 </code></pre>
 
-<h3 id="os-possiveis-parametros-para-serem-passados-ao-widget">Os possíveis parâmetros para serem passados ao <code>widget</code>:</h3>
+<blockquote>
+<p>Este <code>HTML</code> será usado para definir o lugar onde devemos carregar o conteúdo de nosso <em>widget</em>.
+Informe corretamente os parâmetros de <strong>largura</strong> e <strong>altura</strong> para evitar um comportamento indesejado, como por exemplo, quebrar o layout sobrepondo outros elementos da página.  </p>
+</blockquote>
 <ul>
-<li>data-width:<br />
-Parâmetro que define a largura do widget  </li>
-<li>data-height:<br />
-Parâmetro que define a altura do widget  </li>
-<li>data-app-id:<br />
-Consiste de seu <code>appId</code>. Caso ainda não possua um <code>appId</code>, você pode solicitar acesso <a href="mailto:exemplo@widgetlegal.com">enviando-nos um email</a>.  </li>
+<li>Os parâmetros abaixo devem ser informados para que o <code>widget</code> funcione corretamente:  <ul>
+<li><code>data-width</code>:<br />
+    Define a <strong>largura</strong> que o <em>widget</em> usará na página.  </li>
+<li><code>data-height</code>:<br />
+    Define a <strong>altura</strong> que o <em>widget</em> usará na página.  </li>
+<li><code>data-app-id</code>:<br />
+    É aqui que você deve informar seu <code>appId</code>. O <code>appId</code> é o que nos permite identificar seu acesso ao <em>widget</em> antes de colocá-lo em sua página.</li>
 </ul>
-<h2 id="incluindo-o-script">Incluindo o <code>&lt;script&gt;</code></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget luctus sapien. Aliquam posuere dictum dolor vel consequat. Fusce sed est fringilla lorem consectetur consequat.  </p>
+</li>
+</ul>
+<blockquote>
+<p>Para solicitar um <code>appId</code> envie um email para <a href="mailto:dev@guiabolso.com.br&amp;subject=Simulador%20appId%20request">dev@guiabolso.com.br</a>.  </p>
+</blockquote>
+<h3 id="incluindo-o-script">Incluindo o <code>&lt;script&gt;</code></h3>
+<p>Coloque o seguinte trecho de código antes de fechar a <em>tag</em> <code>&lt;body&gt;</code> na página que o <em>widget</em> será carregado:    </p>
 <pre class="prettyprint well"><code class="html">&lt;script&gt;
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = &quot;//plugins.guiabolso.local/gb-simulador.js#appId=436020343148643&quot;;
+        js.src = &quot;//plugins.guiabolso.local/gb-simulador.js&quot;;
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'gb-js'));
 &lt;/script&gt;
