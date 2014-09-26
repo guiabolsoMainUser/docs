@@ -1,10 +1,11 @@
-# GuiaBolso Simulador  
+# GuiaBolso Simulador
+---------------------
 
-## Como funciona?
+### Como funciona?
 O nosso simulador é um _widget_ que é carregado dinamicamente, sem bloquear o carregamento do conteúdo do seu site (como estilos _CSS_ ou arquivos _JavaScript_). Você insere um elemento `HTML` onde deseja que o _widget_ fique visível na página, e, para inicializar o _widget_, colocará um `<script>` no final da sua página, antes de fechar a _tag_ `<body>`. Este `<script>` então identificará através de um `appId` qual widget carregar, e irá iniciar o _widget_ de acordo com as definições de **largura** e **altura**, como descrevemos em mais detalhes a seguir.  
 
 
-## Incluindo o `HTML` do _widget_  
+### Incluindo o `HTML` do _widget_  
 Para inicializar nosso `<script>`(_cobriremos na próxima seção_) de inicialização é preciso primeiramente incluir o seguinte `HTML` para ser usado como _container_:  
 
 ```html
@@ -26,7 +27,7 @@ Para inicializar nosso `<script>`(_cobriremos na próxima seção_) de inicializ
 > Para solicitar um `appId` envie um email para [dev@guiabolso.com.br](mailto:dev@guiabolso.com.br&subject=Simulador%20appId%20request).  
 
 
-## Incluindo o `<script>`  
+### Incluindo o `<script>`  
 Coloque o seguinte trecho de código antes de fechar a _tag_ `<body>` na página que o _widget_ será carregado:    
 
 ```html
