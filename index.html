@@ -84,7 +84,7 @@
 <p>O nosso simulador é um <em>widget</em> que é carregado dinamicamente, sem bloquear o carregamento do conteúdo do seu site (como estilos <em>CSS</em> ou arquivos <em>JavaScript</em>). Você insere um elemento <code>HTML</code> onde deseja que o <em>widget</em> fique visível na página, e, para inicializar o <em>widget</em>, colocará um <code>&lt;script&gt;</code> no final da sua página, antes de fechar a <em>tag</em> <code>&lt;body&gt;</code>. Este <code>&lt;script&gt;</code> então identificará através de um <code>appId</code> qual widget carregar, e irá iniciar o <em>widget</em> de acordo com as definições de <strong>largura</strong> e <strong>altura</strong>, como descrevemos em mais detalhes a seguir.  </p>
 <h3 id="incluindo-o-html-do-widget">Incluindo o <code>HTML</code> do <em>widget</em></h3>
 <p>Para inicializar nosso <code>&lt;script&gt;</code>(<em>cobriremos na próxima seção</em>) de inicialização é preciso primeiramente incluir o seguinte <code>HTML</code> para ser usado como <em>container</em>:  </p>
-<pre class="prettyprint well"><code class="html">&lt;div id=&quot;gb-widget&quot; data-width=&quot;800&quot; data-height=&quot;600&quot; data-app-id=&quot;{seu appId vem aqui}&quot;&gt;&lt;/div&gt;
+<pre class="prettyprint well"><code class="html">&lt;div id=&quot;gb-widget&quot; data-width=&quot;234&quot; data-height=&quot;639&quot; data-app-id=&quot;{seu appId vem aqui}&quot;&gt;&lt;/div&gt;
 </code></pre>
 
 <blockquote>
@@ -93,12 +93,12 @@ Informe corretamente os parâmetros de <strong>largura</strong> e <strong>altura
 </blockquote>
 <ul>
 <li>Os parâmetros abaixo devem ser informados para que o <code>widget</code> funcione corretamente:  <ul>
-<li><code>data-width</code>:<br />
-    Define a <strong>largura</strong> que o <em>widget</em> usará na página.  </li>
-<li><code>data-height</code>:<br />
-    Define a <strong>altura</strong> que o <em>widget</em> usará na página.  </li>
-<li><code>data-app-id</code>:<br />
-    É aqui que você deve informar seu <code>appId</code>. O <code>appId</code> é o que nos permite identificar seu acesso ao <em>widget</em> antes de colocá-lo em sua página.</li>
+<li><code>data-width</code> (<em>valor padrão</em>: 234)<br />
+    Define a <strong>largura</strong> em <strong>pixels</strong> que o <em>widget</em> usará na página. <em>(Se não for passado nenhum valor, ou o valor passado for menor que o valor padrão, descartaremos o parâmetro passado e utilizaremos o valor padrão)</em>  </li>
+<li><code>data-height</code> (<em>valor padrão</em>: 639)<br />
+    Define a <strong>altura</strong> em <strong>pixels</strong> que o <em>widget</em> usará na página. <em>(Se não for passado nenhum valor, ou o valor passado for menor que o valor padrão, descartaremos o parâmetro passado e utilizaremos o valor padrão)</em>  </li>
+<li><code>data-app-id</code><br />
+    É aqui que você deve informar seu <code>appId</code>. O <code>appId</code> é o que nos permite identificar seu acesso ao <em>widget</em> antes de colocá-lo em sua página. <em>(Se o <code>appId</code> não for informado ou for inválido, o widget não inicializará)</em>  </li>
 </ul>
 </li>
 </ul>
@@ -113,7 +113,7 @@ Informe corretamente os parâmetros de <strong>largura</strong> e <strong>altura
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = &quot;//plugins.guiabolso.local/gb-simulador.js&quot;;
+        js.src = &quot;//plugins.guiabolso.com.br/gb-simulador.js&quot;;
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'gb-js'));
 &lt;/script&gt;
