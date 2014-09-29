@@ -17,12 +17,12 @@ Para inicializar nosso `<script>`(_cobriremos na próxima seção_) de inicializ
 
 
  - Os parâmetros abaixo devem ser informados para que o `widget` funcione corretamente:  
-    - `data-width`:  
-        Define a **largura** que o _widget_ usará na página.  
-    - `data-height`:  
-        Define a **altura** que o _widget_ usará na página.  
-    - `data-app-id`:  
-        É aqui que você deve informar seu `appId`. O `appId` é o que nos permite identificar seu acesso ao _widget_ antes de colocá-lo em sua página.
+    - `data-width` (_valor padrão_: 234)  
+        Define a **largura** em **pixels** que o _widget_ usará na página. _(Se não for passado nenhum valor, ou o valor passado for menor que o valor padrão, descartaremos o parâmetro passado e utilizaremos o valor padrão)_  
+    - `data-height` (_valor padrão_: 639)  
+        Define a **altura** em **pixels** que o _widget_ usará na página. _(Se não for passado nenhum valor, ou o valor passado for menor que o valor padrão, descartaremos o parâmetro passado e utilizaremos o valor padrão)_  
+    - `data-app-id`  
+        É aqui que você deve informar seu `appId`. O `appId` é o que nos permite identificar seu acesso ao _widget_ antes de colocá-lo em sua página. _(Se o `appId` não for informado ou for inválido, o widget não inicializará)_  
 
 > Para solicitar um `appId` envie um email para [dev@guiabolso.com.br](mailto:dev@guiabolso.com.br&subject=Simulador%20appId%20request).  
 
@@ -37,7 +37,7 @@ Coloque o seguinte trecho de código antes de fechar a _tag_ `<body>` na página
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//plugins.guiabolso.local/gb-simulador.js";
+        js.src = "//plugins.guiabolso.com.br/gb-simulador.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'gb-js'));
 </script>
