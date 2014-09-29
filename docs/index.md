@@ -9,7 +9,7 @@ O nosso simulador é um _widget_ que é carregado dinamicamente, sem bloquear o 
 Para inicializar nosso `<script>`(_cobriremos na próxima seção_) de inicialização é preciso primeiramente incluir o seguinte `HTML` para ser usado como _container_:  
 
 ```html
-<div id="gb-widget" data-width="800" data-height="600" data-app-id="{seu appId vem aqui}"></div>
+<div id="gb-widget" data-width="234" data-height="639" data-app-id="{seu appId vem aqui}"></div>
 ```
 
 > Este `HTML` será usado para definir o lugar onde devemos carregar o conteúdo de nosso _widget_.
